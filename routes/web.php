@@ -2,6 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function (): array {
-    return [config('app.name')];
-});
+Route::get('/', fn(): array => [config('app.name')]);

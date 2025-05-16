@@ -13,7 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->validateCsrfTokens([
+            'api/*'
+        ]);//disable middlwware (csrf) to all routes in api/*
+        //see documentation https://laravel.com/docs/12.x/csrf#csrf-excluding-uris
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
